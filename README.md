@@ -1,6 +1,5 @@
 # feedback-reviews
-This application aid users to air the opinion on their experience.
-
+This application aid users to rate and review an outlet based on their experience.
 # Getting Started
 These instructions should get you a copy of the project up and running on your local machine for development and testing purposes.
 

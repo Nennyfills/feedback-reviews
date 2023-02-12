@@ -1,0 +1,38 @@
+.textarea-container {
+ &__wrapper {
+  border-radius: 4px;
+  margin: 0.6em 0 0.1em;
+  border: $black solid 2px;
+  align-items: center;
+  background-color: $light-blue;
+  &--danger {
+   border: $danger solid 2px;
+   display: flex;
+   justify-content: space-between;
+  }
+  &__icon {
+   margin: 0 0.3em;
+  }
+  &__textarea {
+   resize: none;
+   background-color: $light-blue;
+   font-size: 16px;
+   line-height: 1.5;
+   font-weight: 500;
+   padding: 0.5em 0.3em;
+   width: 97%;
+   border: none;
+
+   &::placeholder {
+    color: $black;
+    font-weight: 600;
+    text-transform: capitalize;
+   }
+   &:hover,
+   &:focus {
+    border: none;
+    outline: none;
+   }
+  }
+ }
+}

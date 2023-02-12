@@ -1,0 +1,27 @@
+.feedback {
+ &__card {
+  &__button {
+   display: flex;
+   justify-content: end;
+  }
+  &__wrapper {
+   margin-top: 1em;
+   display: flex;
+   justify-content: space-between;
+   align-items: stretch;
+   @include responsive(tab-land) {
+    flex-wrap: wrap;
+   }
+   &__left {
+    margin-right: 0.4em;
+   }
+   &__left,
+   &__right {
+    @include responsive(tab-port) {
+     width: 100%;
+    }
+    width: 49%;
+   }
+  }
+ }
+}

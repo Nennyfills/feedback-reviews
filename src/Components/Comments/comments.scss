@@ -1,0 +1,61 @@
+.comments {
+ &__latest {
+  text-transform: capitalize;
+ }
+ &__container {
+  height: 270px;
+  overflow: auto;
+ }
+ &__wrapper {
+  &:last-child {
+   div {
+    border: none;
+   }
+  }
+  &__name {
+   text-transform: capitalize;
+  }
+  &__name,
+  &__email {
+   color: $dark-gray;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 1.6;
+  }
+  //   p::first-letter {
+  //     text-transform: uppercase !important;
+  //    }
+  &__comment {
+   color: $light-black;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   white-space: normal;
+   text-overflow: clip;
+   height: 3em;
+   overflow-y: hidden;
+   word-break: break-all;
+   p::first-letter {
+    text-transform: uppercase;
+   }
+  }
+  &__border {
+   border: solid 1px $light-gray;
+   max-width: 50%;
+   margin: 1em auto;
+  }
+  &__no-comment {
+   color: $dark-gray;
+   font-size: 24px;
+   font-weight: 600;
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: solid 1px $dark-gray;
+   height: 250px;
+   background: $light-gray;
+   border-radius: 4px;
+  }
+ }
+}

@@ -1,3 +1,3 @@
-import ratesData, { getOptions } from './chartData';
+import ratesData, { getOptions, reviewsData } from './chartData';
 
-export { ratesData, getOptions };
+export { ratesData, getOptions, reviewsData };

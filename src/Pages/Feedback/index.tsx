@@ -17,7 +17,6 @@ type FormValues = {
  comment: string;
 };
 const Feedback = () => {
-      
  const dispatch = useAppDispatch();
  const navigate = useNavigate();
 
@@ -34,16 +33,12 @@ const Feedback = () => {
   reset,
  } = useForm<FormValues>(feedBackOptions);
 
- const submitForm = async (data: FormValues) => {
-  try {
-   await dispatch(postFeedback(data));
-   await dispatch(postChartRates(updateChartRates(allRates, data.rate)));
-   toast.success('Comment saved successfully');
-   reset();
-   navigate('feedback-reviews');
-  } catch (error: any) {
-   toast.success('Sorry Something went wrong');
-  }
+ const submitForm = (data: FormValues) => {
+  dispatch(postFeedback(data));
+  dispatch(postChartRates(updateChartRates(allRates, data.rate)));
+  toast.success('Comment saved successfully');
+  reset();
+  navigate('feedback-reviews');
  };
 
  return (

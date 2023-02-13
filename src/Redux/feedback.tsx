@@ -6,7 +6,7 @@ import { RootState } from './store';
 export const feedbackSlice = createSlice({
  name: 'feedback',
  initialState: {
-  reviews:  [] as CommentType[],
+  reviews: [] as CommentType[],
   totalChartRates: ratesData,
  },
  reducers: {
@@ -22,4 +22,4 @@ export const feedbackSlice = createSlice({
 export const { postFeedback, postChartRates } = feedbackSlice.actions;
 
 export default feedbackSlice.reducer;
-export const selectCount = (state: RootState) => state.Feedback;
+export const Feedback = (state: RootState) => state.Feedback;

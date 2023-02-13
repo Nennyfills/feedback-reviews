@@ -11,7 +11,7 @@ const FeedbackReviews = () => {
  }));
 
  const navigate = useNavigate();
- 
+
  return (
   <div className="feedback-reviews" data-testid="feedback-reviews">
    <Card className="feedback-reviews__card">

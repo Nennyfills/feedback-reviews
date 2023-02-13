@@ -1,11 +1,15 @@
 .layout {
- height: calc(100vh - 6em);
+ height: calc(100vh - 5em);
  max-width: 1100px;
- margin: 2em auto;
- @include responsive(port) {
+ margin: 1.5em auto;
+ @include responsive(tab-port) {
   max-width: auto;
+  margin: 1em auto;
  }
  &__section {
   padding: 2em 0;
+  @include responsive(tab-port) {
+   padding: 0;
+  }
  }
 }

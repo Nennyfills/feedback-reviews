@@ -49,7 +49,6 @@ const Rating: FC<RatingProps> = ({ error, register }: RatingProps) => {
        htmlFor={`rate${index}`}
       >
        <span
-      //   role="button"
         star-id={index + 1}
         data-testid={`rating-icon-${index + 1}`}
        >

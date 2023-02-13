@@ -5,12 +5,10 @@
    display: flex;
    justify-content: space-between;
    align-items: stretch;
+   flex-wrap: wrap;
   }
   &__wrapper {
    margin-top: 1em;
-   //    display: flex;
-   //    justify-content: space-between;
-   //    align-items: stretch;
    &__left {
     margin-right: 0.4em;
    }

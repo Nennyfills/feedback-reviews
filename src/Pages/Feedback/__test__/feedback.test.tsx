@@ -1,17 +1,26 @@
-import { cleanup, fireEvent, screen } from '@testing-library/react';
-import { store, withOnlyRedux } from 'Test/testUtils';
+/* eslint-disable testing-library/no-unnecessary-act */
+/* eslint-disable testing-library/no-render-in-setup */
+import { fireEvent, screen } from '@testing-library/react';
+import { renderWithProviders, testStore } from 'Test/testUtils';
 
 import Feedback from '..';
 import userEvent from '@testing-library/user-event';
 import FeedbackReviews from 'Pages/FeedbackReviews';
 import { act } from 'react-dom/test-utils';
 
+const mockedUsedNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+ ...(jest.requireActual('react-router-dom') as any),
+ useNavigate: () => mockedUsedNavigate,
+}));
+
+testStore.dispatch = jest.fn();
+
 describe('when feedback first renders', () => {
  beforeEach(() => {
-  withOnlyRedux(<Feedback />, store);
+  renderWithProviders(<Feedback />);
  });
- afterEach(cleanup);
-
  it('should render without error', () => {
   const element = screen.getByTestId('feedback');
   expect(element).toBeInTheDocument();
@@ -20,9 +29,8 @@ describe('when feedback first renders', () => {
 
 describe('when feedback renders with issue', () => {
  beforeEach(() => {
-  withOnlyRedux(<Feedback />, store);
+  renderWithProviders(<Feedback />);
  });
- afterEach(cleanup);
 
  test('should display correct error message', async () => {
   const submit = screen.getByTestId('reuseable-button');
@@ -46,10 +54,8 @@ describe('when feedback renders with issue', () => {
 
 describe('when feedback renders without issues', () => {
  beforeEach(() => {
-  withOnlyRedux(<Feedback />, store);
+  renderWithProviders(<Feedback />);
  });
- afterEach(cleanup);
-
  it('should display required error when value is invalid', async () => {
   fireEvent.input(screen.getByPlaceholderText('Name'), {
    target: {
@@ -67,9 +73,10 @@ describe('when feedback renders without issues', () => {
 
   const submit = screen.getByTestId('reuseable-button');
 
-  fireEvent.click(submit);
-
-  act(() => withOnlyRedux(<FeedbackReviews />, store));
+  act(() => {
+   fireEvent.click(submit);
+   renderWithProviders(<FeedbackReviews />);
+  });
   expect(await screen.findByText('Feedback Results')).toBeInTheDocument();
  });
 });

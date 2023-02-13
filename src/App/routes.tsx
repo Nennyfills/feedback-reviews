@@ -11,15 +11,13 @@ const routes: route[] = [
   path: '/',
   exact: true,
   element: <Feedback />,
-  loader: <div>loader</div>,
-  //   loader: <LoaderOne remove />,
+  loader: <div>loading...</div>,
  },
  {
   path: 'feedback-reviews',
   exact: true,
   element: <FeedbackReviews />,
-  loader: <div>loader</div>,
-  //   loader: <LoaderThree />,
+  loader: <div>loading...</div>,
  },
 ];
 

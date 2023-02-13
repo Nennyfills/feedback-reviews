@@ -6,10 +6,16 @@ describe('when getTotalReview is called', () => {
  const updatedData = updateChartRates(ratesData, 5);
  const result = getTotalReview(Object.values(updatedData));
  it('should expect getTotalReview to get the right total review rating', () => {
-  expect(result).toEqual(1);
+  expect(result.totalRate).toEqual(1);
  });
  it('should expect getTotalReview to get the wrong total review rating', () => {
-  expect(result).not.toEqual(5);
+  expect(result.totalRate).not.toEqual(5);
+ });
+ it('should expect getTotalReview to get the right average review rating', () => {
+  expect(result.average).toEqual('5.0');
+ });
+ it('should expect getTotalReview to get the wrong average review rating', () => {
+  expect(result.average).not.toEqual(1);
  });
 });
 

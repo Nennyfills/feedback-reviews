@@ -11,7 +11,7 @@ Things you need to get started:
 # Installing
 To get the project running, follow these steps:
 - Create a folder
--Enter/Navigate into that folder
+- Enter/Navigate into that folder
 ```
 cd <folder-name>
 ```
@@ -37,9 +37,6 @@ npm run test or yarn run test
 ```
 npm run test --coverage or npm run test:coverage || yarn run test --coverage or yarn run test:coverage
 ```
-# Deployment
-The app will be deployed using either heroku or Netlify
-
 # Built With
 - Javascript
 - Typescript - v4.9.5

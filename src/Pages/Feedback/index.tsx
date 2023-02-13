@@ -36,7 +36,7 @@ const Feedback = () => {
  const submitForm = (data: FormValues) => {
   dispatch(postFeedback(data));
   dispatch(postChartRates(updateChartRates(allRates, data.rate)));
-  toast.success('Comment saved successfully');
+  toast.success('Feedback saved successfully');
   reset();
   navigate('feedback-reviews');
  };

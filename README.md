@@ -37,8 +37,6 @@ npm run test or yarn run test
 ```
 npm run test --coverage or npm run test:coverage || yarn run test --coverage or yarn run test:coverage
 ```
-# Deployment
-The app will be deployed using either heroku or Netlify
 
 # Built With
 - Javascript

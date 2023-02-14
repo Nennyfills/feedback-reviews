@@ -19,7 +19,7 @@ const FeedbackReviews = () => {
      <h5 data-testid="feedback-reviews-title">Feedback Results</h5>
      <Button
       className="feedback-reviews__card__button"
-      onClick={() => navigate(-1)}
+      onClick={() => navigate('/')}
      >
       Go Back
      </Button>

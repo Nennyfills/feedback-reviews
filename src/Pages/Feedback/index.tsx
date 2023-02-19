@@ -9,13 +9,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { updateChartRates } from 'Helpers';
 import { toast } from 'react-toastify';
+import { CommentType } from 'Components/Comments';
 
-type FormValues = {
- name: string;
- email: string;
- rate: number;
- comment: string;
-};
+
+/**
+ * The Feedback component.
+ * @Feedback view
+ * @returns JSX.Element
+ */
 const Feedback = () => {
  const dispatch = useAppDispatch();
  const navigate = useNavigate();
@@ -31,9 +32,9 @@ const Feedback = () => {
   handleSubmit,
   formState: { errors },
   reset,
- } = useForm<FormValues>(feedBackOptions);
+ } = useForm<CommentType>(feedBackOptions);
 
- const submitForm = (data: FormValues) => {
+ const submitForm = (data: CommentType) => {
   dispatch(postFeedback(data));
   dispatch(postChartRates(updateChartRates(allRates, data.rate)));
   toast.success('Feedback saved successfully');

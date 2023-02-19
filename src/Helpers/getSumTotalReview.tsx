@@ -1,7 +1,13 @@
-const getTotalReview = (totalData: number[], review?: any) => {
+/**
+ * getTotalReview function
+ * get the total and average of all chart rates.
+ * @param totalData - totalData will accept parameter as array.
+ * @returns object of number
+ */
+const getTotalReview = (totalData: number[]) => {
  let count: number = 0;
 
- const totalRate = totalData.reduce((sum, item, index) => {
+ const totalRate = totalData.reduce((sum, item) => {
   let copyItem: any = item;
   return sum + copyItem[1];
  }, 0);

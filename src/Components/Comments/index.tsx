@@ -1,14 +1,25 @@
 import { FC } from 'react';
 
+ /** Declaring comment object with known properties */
 export type CommentType = {
  email: string;
  name: string;
  comment: string;
  rate: number;
 };
-interface CommentsProps {
+
+ /** Declaring comments component props type */
+export interface CommentsProps {
+ /** comments type array of objects */
  comments: CommentType[];
 }
+
+/**
+ * The comments component.
+ * @Comments reuseable comments
+ * @param {*} comments - comments will accept parameter as array of object.
+ * @returns JSX.Element
+ */
 const Comments: FC<CommentsProps> = ({ comments }: CommentsProps) => {
  return (
   <div className="comments" data-testid="reuseable-comments">

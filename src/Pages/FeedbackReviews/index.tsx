@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from 'Redux/hooks';
 
+/**
+ * The FeedbackReviews component.
+ * @FeedbackReviews view
+ * @returns JSX.Element
+ */
 const FeedbackReviews = () => {
  const { totalChartRates, reviews } = useAppSelector(({ Feedback }) => ({
   Feedback,

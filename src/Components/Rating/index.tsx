@@ -1,15 +1,30 @@
 import { FC, useState, MouseEvent } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-interface RatingProps {
+/** Declaring Rating component props type */
+export interface RatingProps {
+ /** error string or undefined type syntax that takes error message */
  error: string | undefined;
+ /** register function type syntax that takes useForm register */
  register?: UseFormRegisterReturn;
 }
 
+/**
+ * The rating component.
+ * @Rating reuseable rating
+ * @param {*} error - error will accept parameter as string | undefined
+ * @param {*} register - register will accept parameter as object.
+ * @returns JSX.Element
+ */
 const Rating: FC<RatingProps> = ({ error, register }: RatingProps) => {
  const [selection, setSelection] = useState<number>(0);
  const [rating, setRating] = useState<number>(0);
 
+ /**
+  * The hoverOver function.
+  * @param {*} event - event will accept parameter as mouse event or null.
+  * @hoverOver update state on mouseOver
+  */
  const hoverOver = (event: MouseEvent | null) => {
   const target = event?.target as HTMLInputElement;
   let starId: number = 0;
@@ -20,6 +35,11 @@ const Rating: FC<RatingProps> = ({ error, register }: RatingProps) => {
   setSelection(starId);
  };
 
+ /**
+  * The handleOnClick function.
+  * @param {*} event - event will accept parameter as mouse event or null.
+  * @handleOnClick update state on click
+  */
  const handleOnClick = (event: MouseEvent<HTMLInputElement>) => {
   const target = event.target as HTMLInputElement;
   if (target.getAttribute('star-id')) {
@@ -48,10 +68,7 @@ const Rating: FC<RatingProps> = ({ error, register }: RatingProps) => {
        className="rating__wrapper__label"
        htmlFor={`rate${index}`}
       >
-       <span
-        star-id={index + 1}
-        data-testid={`rating-icon-${index + 1}`}
-       >
+       <span star-id={index + 1} data-testid={`rating-icon-${index + 1}`}>
         {marked ? '\u2605' : '\u2606'}
        </span>
        <input
@@ -66,7 +83,9 @@ const Rating: FC<RatingProps> = ({ error, register }: RatingProps) => {
      );
     })}
    </div>
-   <p className="error--text" data-testid="error">{error}</p>
+   <p className="error--text" data-testid="error">
+    {error}
+   </p>
   </div>
  );
 };

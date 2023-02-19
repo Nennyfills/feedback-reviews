@@ -37,9 +37,14 @@ npm run test or yarn run test
 ```
 npm run test --coverage or npm run test:coverage || yarn run test --coverage or yarn run test:coverage
 ```
+- Run storybook
+```
+npm run storybook || yarn run storybook
+```
 
 # Built With
 - Javascript
 - Typescript - v4.9.5
 - React - (UI library) - v18.2.0
 - Jest - (JavaScript testing framework )
+- storybook

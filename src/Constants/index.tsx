@@ -1,3 +1,5 @@
 import ratesData, { getOptions, reviewsData } from './chartData';
 
-export { ratesData, getOptions, reviewsData };
+import comments from './commentData';
+
+export { ratesData, getOptions, reviewsData, comments };

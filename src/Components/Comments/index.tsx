@@ -23,7 +23,7 @@ export interface CommentsProps {
 const Comments: FC<CommentsProps> = ({ comments }: CommentsProps) => {
  return (
   <div className="comments" data-testid="reuseable-comments">
-   <h5 className="comments__latest">Lates Comment</h5>
+   <h5 className="comments__latest">Latest Comment</h5>
    <div className="comments__container">
     {comments.length ? (
      comments.map((value, index) => (

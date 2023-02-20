@@ -29,7 +29,7 @@ describe('when feedback renders with no data available', () => {
  it('should display accurate text', async () => {
   expect(await screen.findByText('Feedback Results')).toBeInTheDocument();
   expect(await screen.findByText('Go Back')).toBeInTheDocument();
-  expect(await screen.findByText('Lates Comment')).toBeInTheDocument();
+  expect(await screen.findByText('Latest Comment')).toBeInTheDocument();
   expect(await screen.findByText('No Comment Available')).toBeInTheDocument();
  });
 });
@@ -38,11 +38,11 @@ describe('when feedback renders with data available', () => {
  beforeEach(() => {});
 
  it('should display accurate text', async () => {
-  renderWithProviders(<FeedbackReviews />, {
-   preloadedState: {
-    Feedback: initialState,
-   },
-  });
+   renderWithProviders(<FeedbackReviews />, {
+    preloadedState: {
+     Feedback: initialState,
+    },
+   })
 
   expect(await screen.findByText('test@test.com')).toBeInTheDocument();
   expect(await screen.findByText('Nice place to go')).toBeInTheDocument();

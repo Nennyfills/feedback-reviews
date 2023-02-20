@@ -32,10 +32,10 @@ describe('when feedback renders with issue', () => {
   renderWithProviders(<Feedback />);
  });
 
- test('should display correct error message', async () => {
+ test('should display correct error message when all field are empty', async () => {
   const submit = screen.getByTestId('reuseable-button');
+  await act(async () => fireEvent.click(submit));
 
-  fireEvent.click(submit);
   expect(await screen.findByText('Submit')).toBeInTheDocument();
   expect(
    await screen.findByText('name is a required field')
@@ -53,30 +53,29 @@ describe('when feedback renders with issue', () => {
 });
 
 describe('when feedback renders without issues', () => {
- beforeEach(() => {
+ beforeEach(async () => {
   renderWithProviders(<Feedback />);
  });
- it('should display required error when value is invalid', async () => {
-  fireEvent.input(screen.getByPlaceholderText('Name'), {
-   target: {
-    value: 'test',
-   },
-  });
-  fireEvent.input(screen.getByPlaceholderText('Email'), {
-   target: {
-    value: 'test@gmail.com',
-   },
-  });
+ it('should send successfully send feedback when all fields are filled', async () => {
   const rate = screen.getByTestId('rating-input-4');
-  userEvent.dblClick(rate);
-  userEvent.type(screen.getByPlaceholderText('Comment'), 'i love my top');
-
   const submit = screen.getByTestId('reuseable-button');
 
-  act(() => {
+  await act(async () => {
+   fireEvent.input(screen.getByPlaceholderText('Name'), {
+    target: {
+     value: 'test',
+    },
+   });
+   fireEvent.input(screen.getByPlaceholderText('Email'), {
+    target: {
+     value: 'test@gmail.com',
+    },
+   });
+   userEvent.dblClick(rate);
+   userEvent.type(screen.getByPlaceholderText('Comment'), 'i love my top');
    fireEvent.click(submit);
-   renderWithProviders(<FeedbackReviews />);
   });
+  renderWithProviders(<FeedbackReviews />);
   expect(await screen.findByText('Feedback Results')).toBeInTheDocument();
  });
 });
